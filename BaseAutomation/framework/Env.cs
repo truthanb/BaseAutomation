@@ -10,7 +10,7 @@ namespace automation_framework.framework
     {
         private static IWebDriver browser;
 
-        private static Configuration config = new Configuration();
+        private static Configuration config;
         private static int timeOutDuration = 10;
         private static Boolean configLoaded = false;
 
@@ -66,6 +66,7 @@ namespace automation_framework.framework
             }
             try
             {
+                config = new Configuration();
                 DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
                 var configPath = Path.Combine(dir.Parent.Parent.FullName, @"resources\data\configuration.json");
                 using (StreamReader r = new StreamReader(configPath))
