@@ -69,18 +69,18 @@ namespace BaseAutomation.Resources.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add two numbers")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Basic framework check. Login to http://the-internet.herokuapp.com/login")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("setupFeature")]
-        public virtual void AddTwoNumbers()
+        public virtual void BasicFrameworkCheck_LoginToHttpThe_Internet_Herokuapp_ComLogin()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic framework check. Login to http://the-internet.herokuapp.com/login", ((string[])(null)));
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
- testRunner.Given("I have gone to heroku app", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Login to heroku app", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Watch time go by", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

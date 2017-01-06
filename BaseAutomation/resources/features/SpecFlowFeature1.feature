@@ -2,6 +2,6 @@
 Feature: SpecFlowFeature1
 	Framework testing
 
-Scenario: Add two numbers
-	Given I have gone to heroku app
-	Then the result should be 120 on the screen
+Scenario: Basic framework check. Login to http://the-internet.herokuapp.com/login 
+	Given Login to heroku app
+	Then Watch time go by
