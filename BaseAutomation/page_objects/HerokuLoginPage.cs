@@ -19,7 +19,5 @@ namespace BaseAutomation.page_objects
 
         [FindsBy(How = How.XPath, Using = "//button[@class = 'radius']/i")]
         public IWebElement submitButton;
-
-
     }
 }
