@@ -70,7 +70,8 @@ namespace automation_framework.framework
             }
             try
             {
-                string configPath = @"C:\Users\Ben\documents\visual studio 2015\Projects\BaseAutomation\BaseAutomation\resources\data\configuration.json";
+                DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+                var configPath = Path.Combine(dir.Parent.Parent.FullName, @"resources\data\configuration.json");
                 using (StreamReader r = new StreamReader(configPath))
                 {
                     string json = r.ReadToEnd();
