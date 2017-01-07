@@ -8,6 +8,8 @@ namespace automation_framework.framework
 {
     public sealed class Env
     {
+        //Env is essentially the global variable class. 
+
         private static IWebDriver browser;
 
         private static Configuration config;

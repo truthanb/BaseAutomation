@@ -17,17 +17,14 @@ namespace BaseAutomation.framework
 
         public static IWebDriver GetBrowser(String browserName)
         {
-            IWebDriver d = null;
             IWebDriver driver = null;
             DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
             var pathToDrivers = Path.Combine(dir.Parent.Parent.FullName, @"resources\browser_drivers");
 
-
             switch (browserName)
             {
                 case "Firefox":
-                        drivers.TryGetValue("Firefox", out d);
-                        driver = d;
+                        drivers.TryGetValue("Firefox", out driver);
                         if (driver == null)
                         {
                         FirefoxDriverService service = FirefoxDriverService.CreateDefaultService();
@@ -44,8 +41,7 @@ namespace BaseAutomation.framework
                     }
                 case "IE":
                     {
-                        drivers.TryGetValue("IE", out d);
-                        driver = d;
+                        drivers.TryGetValue("IE", out driver);
                         if (driver == null)
                         {
                             var options = new InternetExplorerOptions();
@@ -62,8 +58,7 @@ namespace BaseAutomation.framework
                     }
                 case "Chrome":
                     {
-                        drivers.TryGetValue("Chrome", out d);
-                        driver = d;
+                        drivers.TryGetValue("Chrome", out driver);
                         if (driver == null)
                         {
                             driver = new ChromeDriver(pathToDrivers);
@@ -80,8 +75,7 @@ namespace BaseAutomation.framework
                     {
                         var browserPath = Environment.CurrentDirectory.Replace(@"\bin\Debug", @"\resources\browser_drivers\MicrosoftWebDriver.exe");
                         Environment.SetEnvironmentVariable("webdriver.edge.driver", browserPath);
-                        drivers.TryGetValue("Edge", out d);
-                        driver = d;
+                        drivers.TryGetValue("Edge", out driver);
                         if (driver == null)
                         {
                             driver = new EdgeDriver(pathToDrivers);
@@ -108,10 +102,10 @@ namespace BaseAutomation.framework
         {
             foreach(string key in drivers.Keys)
             {
-                IWebDriver d;
-                drivers.TryGetValue(key, out d);
-                d.Quit();
-                d.Dispose();
+                IWebDriver driver;
+                drivers.TryGetValue(key, out driver);
+                driver.Quit();
+                driver.Dispose();
             }
         }
     }

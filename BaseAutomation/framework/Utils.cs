@@ -13,7 +13,8 @@ namespace BaseAutomation.framework
         public static void HighlightElement(IWebElement element)
         {
             IWebDriver driver = Env.GetBrowser();
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].setAttribute(arguments[1], arguments[2]", element, "background: yellow; border: 2px solid red;");
+            ((IJavaScriptExecutor)driver).ExecuteScript(@"$(arguments[0]).css({ ""border - width"" : ""2px"", ""border - style"" : ""solid"", ""border - color"" : ""red"" }); ",
+                element);
         }
     }
 }
