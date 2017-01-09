@@ -19,7 +19,7 @@ namespace AutomationFramework.framework
         {
             IWebDriver driver = null;
             DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            var pathToDrivers = Path.Combine(dir.Parent.Parent.Parent.FullName, @"AutomationFramework\resources\browser_drivers");
+            var pathToDrivers = Path.Combine(dir.Parent.Parent.Parent.FullName, @"AutomationFramework\browser_drivers");
 
             switch (browserName)
             {

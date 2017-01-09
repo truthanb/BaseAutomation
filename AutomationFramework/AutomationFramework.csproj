@@ -69,9 +69,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\browser_drivers\chromedriver.exe" />
-    <Content Include="resources\browser_drivers\geckodriver.exe" />
-    <Content Include="resources\browser_drivers\MicrosoftWebDriver.exe" />
+    <Content Include="browser_drivers\chromedriver.exe" />
+    <Content Include="browser_drivers\geckodriver.exe" />
+    <Content Include="browser_drivers\MicrosoftWebDriver.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
