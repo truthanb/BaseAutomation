@@ -6,10 +6,11 @@ using System.IO;
 
 namespace AutomationFramework.framework
 {
+    /// <summary>
+    /// Env is essentially the global variable class.
+    /// </summary>
     public sealed class Env
     {
-        //Env is essentially the global variable class. 
-
         private static IWebDriver browser;
 
         private static Configuration config;
@@ -60,6 +61,9 @@ namespace AutomationFramework.framework
             browser.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(tod));
         }
 
+        /// <summary>
+        /// Loads a config file for relevant test run parameters. 
+        /// </summary>
         public static void LoadConfig()
         {
             if (configLoaded)
@@ -85,10 +89,12 @@ namespace AutomationFramework.framework
             }
         }
 
+        /// <summary>
+        /// Setting configLoaded to false will make loadConfig() load the config file. Good to run at the end of a Test run...
+        /// when tests spanning multiple projects are run.
+        /// </summary>
         public static void ClearConfig()
         {
-            //Setting configLoaded to false will make loadConfig() load the config file. Good to run at the end of a Test run...
-            //when tests spanning multiple projects are run.
             configLoaded = false;
         }
     }
