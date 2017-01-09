@@ -1,5 +1,5 @@
 ﻿@setupFeature
-Feature: SpecFlowFeature1
+Feature: Feature.feature
 	Framework testing
 
 Scenario: Basic framework check. Login to http://the-internet.herokuapp.com/login 

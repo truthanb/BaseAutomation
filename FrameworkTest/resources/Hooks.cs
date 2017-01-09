@@ -1,14 +1,16 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
-using automation_framework.framework;
+using AutomationFramework.framework;
 
 namespace BaseAutomation.framework
 {
     [Binding]
     public class Hooks
     {
-        [BeforeFeature("setupFeature")]
+        //More information about how hooks work can be found here. http://specflow.org/documentation/Hooks/
+
+        [BeforeTestRun()]
         public static void BeforeAll()
         {
             Env.LoadConfig();
@@ -26,7 +28,6 @@ namespace BaseAutomation.framework
                 browser.Manage().Cookies.DeleteAllCookies();
                 browser.FindElement(By.Id("logout")).Click();
                 browser.Manage().Cookies.DeleteAllCookies();
-                BrowserFactory.CloseAllDrivers();
             }
             catch (Exception) { }
         }
@@ -34,6 +35,7 @@ namespace BaseAutomation.framework
         [AfterTestRun]
         private static void afterAll()
         {
+            Env.ClearConfig();
             BrowserFactory.CloseAllDrivers();
         }
     }

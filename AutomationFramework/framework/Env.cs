@@ -4,8 +4,11 @@ using BaseAutomation.framework;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace automation_framework.framework
+namespace AutomationFramework.framework
 {
+    /// <summary>
+    /// Env is essentially the global variable class.
+    /// </summary>
     public sealed class Env
     {
         private static IWebDriver browser;
@@ -58,6 +61,9 @@ namespace automation_framework.framework
             browser.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(tod));
         }
 
+        /// <summary>
+        /// Loads a config file for relevant test run parameters. 
+        /// </summary>
         public static void LoadConfig()
         {
             if (configLoaded)
@@ -68,7 +74,7 @@ namespace automation_framework.framework
             {
                 config = new Configuration();
                 DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-                var configPath = Path.Combine(dir.Parent.Parent.FullName, @"resources\data\configuration.json");
+                var configPath = Path.Combine(dir.Parent.Parent.FullName, @"resources\configuration.json");
                 using (StreamReader r = new StreamReader(configPath))
                 {
                     string json = r.ReadToEnd();
@@ -81,6 +87,15 @@ namespace automation_framework.framework
             {
                 Console.WriteLine("Could not load config file. Using default settings.");
             }
+        }
+
+        /// <summary>
+        /// Setting configLoaded to false will make loadConfig() load the config file. Good to run at the end of a Test run...
+        /// when tests spanning multiple projects are run.
+        /// </summary>
+        public static void ClearConfig()
+        {
+            configLoaded = false;
         }
     }
 }
