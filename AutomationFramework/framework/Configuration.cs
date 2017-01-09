@@ -1,4 +1,4 @@
-﻿namespace BaseAutomation.framework
+﻿namespace AutomationFramework.framework
 {
     public class Configuration
     {

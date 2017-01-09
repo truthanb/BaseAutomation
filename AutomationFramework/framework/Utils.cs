@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
-using automation_framework.framework;
+using AutomationFramework.framework;
 
 namespace BaseAutomation.framework
 {

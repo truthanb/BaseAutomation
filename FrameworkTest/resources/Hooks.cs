@@ -1,7 +1,7 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
-using automation_framework.framework;
+using AutomationFramework.framework;
 
 namespace BaseAutomation.framework
 {
@@ -35,6 +35,7 @@ namespace BaseAutomation.framework
         [AfterTestRun]
         private static void afterAll()
         {
+            Env.ClearConfig();
             BrowserFactory.CloseAllDrivers();
         }
     }

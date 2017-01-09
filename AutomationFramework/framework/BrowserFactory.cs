@@ -9,7 +9,7 @@ using System.IO;
 
 
 
-namespace BaseAutomation.framework
+namespace AutomationFramework.framework
 {
     public class BrowserFactory
     {
@@ -19,7 +19,7 @@ namespace BaseAutomation.framework
         {
             IWebDriver driver = null;
             DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            var pathToDrivers = Path.Combine(dir.Parent.Parent.FullName, @"resources\browser_drivers");
+            var pathToDrivers = Path.Combine(dir.Parent.Parent.Parent.FullName, @"AutomationFramework\resources\browser_drivers");
 
             switch (browserName)
             {

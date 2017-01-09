@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using automation_framework.framework;
+using AutomationFramework.framework;
 
 namespace BaseAutomation.framework
 {

@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
-namespace BaseAutomation.page_objects
+namespace FrameworkTest.page_objects
 {
     class HerokuSecurePage : PageObject
     {

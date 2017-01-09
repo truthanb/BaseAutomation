@@ -4,7 +4,7 @@ using BaseAutomation.framework;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace automation_framework.framework
+namespace AutomationFramework.framework
 {
     public sealed class Env
     {
@@ -70,7 +70,7 @@ namespace automation_framework.framework
             {
                 config = new Configuration();
                 DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-                var configPath = Path.Combine(dir.Parent.Parent.FullName, @"resources\data\configuration.json");
+                var configPath = Path.Combine(dir.Parent.Parent.FullName, @"resources\configuration.json");
                 using (StreamReader r = new StreamReader(configPath))
                 {
                     string json = r.ReadToEnd();
@@ -83,6 +83,13 @@ namespace automation_framework.framework
             {
                 Console.WriteLine("Could not load config file. Using default settings.");
             }
+        }
+
+        public static void ClearConfig()
+        {
+            //Setting configLoaded to false will make loadConfig() load the config file. Good to run at the end of a Test run...
+            //when tests spanning multiple projects are run.
+            configLoaded = false;
         }
     }
 }

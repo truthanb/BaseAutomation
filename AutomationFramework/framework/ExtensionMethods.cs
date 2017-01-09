@@ -3,7 +3,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium;
 using System.Threading;
 using System.Collections.ObjectModel;
-using automation_framework.framework;
+using AutomationFramework.framework;
 
 namespace BaseAutomation.framework
 {

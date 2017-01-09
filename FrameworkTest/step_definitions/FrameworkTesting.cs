@@ -1,13 +1,13 @@
 ﻿using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BaseAutomation.framework;
-using automation_framework.framework;
-using BaseAutomation.page_objects;
+using AutomationFramework.framework;
+using FrameworkTest.page_objects;
 using OpenQA.Selenium;
 using System;
 using System.Threading;
 
-namespace BaseAutomation.step_definitions
+namespace FrameworkTest.step_definitions
 {
     [Binding]
     public sealed class FrameworkTesting
