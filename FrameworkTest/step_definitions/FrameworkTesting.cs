@@ -24,7 +24,7 @@ namespace FrameworkTest.step_definitions
             page.submitButton.Click();
         }
 
-        [Then(@"Watch time go by")]
+        [Then(@"Verify successful login")]
         public void blahp()
         {
             HerokuSecurePage page = new HerokuSecurePage();

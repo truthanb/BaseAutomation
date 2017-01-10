@@ -4,4 +4,4 @@ Feature: Feature.feature
 
 Scenario: Basic framework check. Login to http://the-internet.herokuapp.com/login 
 	Given Login to heroku app
-	Then Watch time go by
+	Then Verify successful login
