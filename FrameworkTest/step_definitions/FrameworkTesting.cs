@@ -34,5 +34,12 @@ namespace FrameworkTest.step_definitions
             Assert.AreEqual(0, driver.FindElements(By.CssSelector("div.flash.success")).Count);
             page.logoutButton.Click();
         }
+
+        [Then(@"Fail Intentionally")]
+        public void ThenFailIntentionally()
+        {
+            Assert.AreEqual(1, 2, "Expected one to equal 2, but nunit says, 'No, it doesn't equal 2.'");
+        }
+
     }
 }

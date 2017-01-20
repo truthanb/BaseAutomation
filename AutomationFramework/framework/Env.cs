@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using BaseAutomation.framework;
 using Newtonsoft.Json;
 using System.IO;
+using RelevantCodes.ExtentReports;
 
 namespace AutomationFramework.framework
 {
@@ -16,6 +17,8 @@ namespace AutomationFramework.framework
         private static Configuration config;
         private static int timeOutDuration = 10;
         private static Boolean configLoaded = false;
+        public static ExtentReports report;
+        public static ExtentTest test;
 
         private Env() { }
 
@@ -96,6 +99,28 @@ namespace AutomationFramework.framework
         public static void ClearConfig()
         {
             configLoaded = false;
+        }
+
+        public static void InitializeExtentReport()
+        {
+            //Set your own path for the test report below.
+            report = new ExtentReports(@"C:\Users\Ben\Documents\ExtentReports\test.html", true);
+            report.AddSystemInfo("Browser", config.browser);
+        }
+
+        public static void WriteExtentReport()
+        {
+            report.Flush();
+        }
+
+        public static void BeginExtentTestLogging(string title, string descr)
+        {
+            test = report.StartTest(title, descr);
+        }
+
+        public static void EndExtentTest()
+        {
+            report.EndTest(test);
         }
     }
 }
