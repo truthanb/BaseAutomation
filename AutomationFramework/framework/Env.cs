@@ -101,10 +101,12 @@ namespace AutomationFramework.framework
             configLoaded = false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static void InitializeExtentReport()
         {
-            //Set your own path for the test report below.
-            report = new ExtentReports(@"C:\Users\Ben\Documents\ExtentReports\test.html", true);
+            report = new ExtentReports(config.report_path, true);
             report.AddSystemInfo("Browser", config.browser);
         }
 

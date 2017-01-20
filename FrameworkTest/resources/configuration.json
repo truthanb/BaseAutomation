@@ -1,5 +1,6 @@
 ﻿{
   "browser": "Chrome",
   "time_out_duration": "15",
-  "base_url":  "http://the-internet.herokuapp.com/login"
+  "base_url": "http://the-internet.herokuapp.com/login",
+  "report_path":  "C:\\Users\\Ben\\Documents\\ExtentReports\\test.html"
 }
