@@ -6,6 +6,7 @@ using FrameworkTest.page_objects;
 using OpenQA.Selenium;
 using System;
 using System.Threading;
+using Protractor;
 
 namespace FrameworkTest.step_definitions
 {
