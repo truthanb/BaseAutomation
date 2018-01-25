@@ -61,7 +61,7 @@ namespace AutomationFramework.framework
 
         private static void SetTimeOutDuration(int tod)
         {
-            browser.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(tod));
+            browser.Manage().Timeouts().ImplicitWait.Equals(TimeSpan.FromSeconds(tod));
         }
 
         /// <summary>
