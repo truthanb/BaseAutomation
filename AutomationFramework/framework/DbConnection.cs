@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
+using NUnit.Framework;
 using System;
 using System.Data;
 
@@ -107,9 +108,19 @@ namespace AutomationFramework.framework
         {
             if (this.OpenConnection() == true)
             {
-                MySqlCommand cmd = new MySqlCommand(insertCommand, connection);
-                cmd.ExecuteNonQuery();
-                this.CloseConnection();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(insertCommand, connection);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    Assert.Fail(e.Message);
+                }
+                finally
+                {
+                    this.CloseConnection();
+                }
             }
         }
 
@@ -165,7 +176,14 @@ namespace AutomationFramework.framework
                     row = table.NewRow();
                     foreach (var column in table.Columns)
                     {
-                        row[column.ToString()] = dataReader[column.ToString()];
+                        try
+                        {
+                            row[column.ToString()] = dataReader[column.ToString()];
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                     }
                     table.Rows.Add(row);
                 }
