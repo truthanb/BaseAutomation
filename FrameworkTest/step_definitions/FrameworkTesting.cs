@@ -5,34 +5,38 @@ using AutomationFramework.framework;
 using FrameworkTest.page_objects;
 using OpenQA.Selenium;
 using System;
+using TechTalk.SpecFlow.Assist;
 using System.Threading;
-using Protractor;
 
 namespace FrameworkTest.step_definitions
 {
     [Binding]
     public sealed class FrameworkTesting
     {
-        IWebDriver driver = Env.GetBrowser();
-
-        [Given(@"Login to heroku app")]
-        public void GivenIHaveGoneToHerokuApp()
+        private IWebDriver _driver;
+        public FrameworkTesting(IWebDriver driver)
         {
-
-            HerokuLoginPage page = new HerokuLoginPage();
-            page.userNameInput.SendKeys("tomsmith");
-            page.passwordInput.SendKeys("SuperSecretPassword!");
+            _driver = driver;
+        }
+        [Given(@"Login to heroku app")]
+        public void GivenIHaveGoneToHerokuApp(Table table)
+        {
+            dynamic data = table.CreateDynamicInstance();
+            HerokuLoginPage page = new HerokuLoginPage(_driver);
+            page.userNameInput.SendKeys(data.UserName);
+            page.passwordInput.SendKeys(data.Password);
             page.submitButton.Click();
         }
 
         [Then(@"Verify successful login")]
         public void blahp()
         {
-            HerokuSecurePage page = new HerokuSecurePage();
-            driver.WaitForPageObject(page.successAlertMsg, 10);
+            HerokuSecurePage page = new HerokuSecurePage(_driver);
+            _driver.WaitForPageObject(page.successAlertMsg, 10);
             Assert.AreEqual("You logged into a secure area!\r\n×", page.successAlertMsg.Text);
             page.alertCloseButton.Click(TimeSpan.FromSeconds(2));
-            Assert.AreEqual(0, driver.FindElements(By.CssSelector("div.flash.success")).Count);
+            Assert.AreEqual(0, _driver.FindElements(By.CssSelector("div.flash.success")).Count);
+            Thread.Sleep(20000);
             page.logoutButton.Click();
         }
 

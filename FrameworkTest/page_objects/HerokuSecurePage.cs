@@ -4,8 +4,13 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace FrameworkTest.page_objects
 {
-    class HerokuSecurePage : PageObject
+    class HerokuSecurePage
     {
+        public HerokuSecurePage(IWebDriver driver)
+        {
+            PageFactory.InitElements(driver, this);
+        }
+
         [FindsBy(How = How.CssSelector, Using = "div.flash.success")]
         public IWebElement successAlertMsg;
 

@@ -9,8 +9,13 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace FrameworkTest.page_objects
 {
-    public class HerokuLoginPage : PageObject
+    public class HerokuLoginPage
     {
+        public HerokuLoginPage(IWebDriver driver)
+        {
+            PageFactory.InitElements(driver, this);
+        }
+
         [FindsBy(How = How.Id, Using = "username")]
         public IWebElement userNameInput;
 

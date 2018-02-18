@@ -72,10 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="framework\BrowserFactory.cs" />
-    <Compile Include="framework\Configuration.cs" />
-    <Compile Include="framework\Env.cs" />
     <Compile Include="framework\ExtensionMethods.cs" />
-    <Compile Include="framework\PageObject.cs" />
     <Compile Include="framework\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
