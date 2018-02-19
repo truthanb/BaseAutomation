@@ -10,4 +10,6 @@ Scenario: Basic framework check. Login to http://the-internet.herokuapp.com/logi
 
 Scenario: Fail for demo
 	Given Login to heroku app
+	| UserName | Password             |
+	| tomsmith | SuperSecretPassword! |
 	Then Fail Intentionally

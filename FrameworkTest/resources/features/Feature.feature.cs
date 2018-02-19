@@ -94,9 +94,16 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fail for demo", ((string[])(null)));
 #line 11
 this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "Password"});
+            table2.AddRow(new string[] {
+                        "tomsmith",
+                        "SuperSecretPassword!"});
 #line 12
- testRunner.Given("Login to heroku app", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 13
+ testRunner.Given("Login to heroku app", ((string)(null)), table2, "Given ");
+#line 15
  testRunner.Then("Fail Intentionally", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

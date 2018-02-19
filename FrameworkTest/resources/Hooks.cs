@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using AutomationFramework.framework;
 using BoDi;
 using System.Configuration;
+using System.Threading;
 
 namespace FrameworkTest.resources
 {
@@ -27,6 +28,7 @@ namespace FrameworkTest.resources
         public void BeforeScenario()
         {
 
+            Thread.Sleep(1500);
             _driver = BrowserFactory.GetBrowser(ConfigurationManager.AppSettings["Browser"].ToString());
             _objectContainer.RegisterInstanceAs<IWebDriver>(_driver);
             _driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["BaseUrl"].ToString());

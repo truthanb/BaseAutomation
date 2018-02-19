@@ -116,7 +116,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="resources\configuration.json" />
     <None Include="resources\features\FailDemo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FailDemo.feature.cs</LastGenOutput>
