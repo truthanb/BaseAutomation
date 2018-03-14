@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
 
-namespace BaseAutomation.framework
+namespace BaseAutomation.Framework
 {
     public class Utils
     {

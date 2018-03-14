@@ -3,9 +3,8 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium;
 using System.Threading;
 using System.Collections.ObjectModel;
-using AutomationFramework.framework;
 
-namespace BaseAutomation.framework
+namespace BaseAutomation.Framework
 {
     public static class ExtensionMethods
     {

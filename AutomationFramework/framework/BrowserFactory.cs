@@ -3,11 +3,10 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using OpenQA.Selenium.PhantomJS;
 using System;
 using System.IO;
 
-namespace AutomationFramework.framework
+namespace AutomationFramework.Framework
 {
     public class BrowserFactory
     {
@@ -15,7 +14,7 @@ namespace AutomationFramework.framework
         {
             IWebDriver driver = null;
             DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            var pathToDrivers = Path.Combine(dir.Parent.Parent.Parent.FullName, @"AutomationFramework\browser_drivers");
+            var pathToDrivers = Path.Combine(dir.Parent.Parent.Parent.FullName, @"AutomationFramework\BrowserDrivers");
 
             switch (browserName.ToLower())
             {
@@ -55,11 +54,17 @@ namespace AutomationFramework.framework
                         driver = new EdgeDriver(pathToDrivers, options);
                         driver.Manage().Window.Maximize();
                         return driver;
-                        
                     }
                 case "headless":
                     {
-                        driver = new PhantomJSDriver(pathToDrivers);
+                        ChromeOptions chromeOptions = new ChromeOptions();
+                        chromeOptions.AddArguments("--headless");
+                        chromeOptions.AddArguments("--test-type");
+                        chromeOptions.AddUserProfilePreference("profile.password_manager_enabled", false);
+                        chromeOptions.AddUserProfilePreference("credentials_enable_service", false);
+                        chromeOptions.AddArguments("disable-infobars");
+                        chromeOptions.AddArguments("start-maximized");
+                        driver = new ChromeDriver(pathToDrivers, chromeOptions);
                         return driver;
                     }
                 case "no browser":

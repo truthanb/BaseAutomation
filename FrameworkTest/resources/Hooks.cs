@@ -1,7 +1,7 @@
 using System;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
-using AutomationFramework.framework;
+using AutomationFramework.Framework;
 using BoDi;
 using System.Configuration;
 using System.Threading;
@@ -51,7 +51,7 @@ namespace FrameworkTest.resources
         {
             try
             {
-
+                Thread.Sleep(3000);
                 _driver.Quit();
             }
             catch (Exception) { }

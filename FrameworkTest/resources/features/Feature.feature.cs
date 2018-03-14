@@ -17,9 +17,8 @@ namespace FrameworkTest.Resources.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Feature.feature")]
-    [NUnit.Framework.CategoryAttribute("setupFeature")]
+    [TechTalk.SpecRun.FeatureAttribute("Feature.feature", new string[] {
+            "setupFeature"}, Description="\tFramework testing", SourceFile="Resources\\Features\\Feature.feature", SourceLine=1)]
     public partial class Feature_FeatureFeature
     {
         
@@ -28,7 +27,7 @@ namespace FrameworkTest.Resources.Features
 #line 1 "Feature.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
+        [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
@@ -37,19 +36,18 @@ namespace FrameworkTest.Resources.Features
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
+        [TechTalk.SpecRun.FeatureCleanup()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [TechTalk.SpecRun.ScenarioCleanup()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -65,8 +63,7 @@ namespace FrameworkTest.Resources.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Basic framework check. Login to http://the-internet.herokuapp.com/login")]
+        [TechTalk.SpecRun.ScenarioAttribute("Basic framework check. Login to http://the-internet.herokuapp.com/login", SourceLine=4)]
         public virtual void BasicFrameworkCheck_LoginToHttpThe_Internet_Herokuapp_ComLogin()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic framework check. Login to http://the-internet.herokuapp.com/login", ((string[])(null)));
@@ -87,8 +84,7 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Fail for demo")]
+        [TechTalk.SpecRun.ScenarioAttribute("Fail for demo", SourceLine=10)]
         public virtual void FailForDemo()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fail for demo", ((string[])(null)));
@@ -107,6 +103,12 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Then("Fail Intentionally", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.TestRunCleanup()]
+        public virtual void TestRunCleanup()
+        {
+            TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         }
     }
 }
