@@ -112,14 +112,21 @@ namespace BaseAutomation.Framework
             }
         }
 
+        /// <summary>
+        /// Finds the hex value for a given rgb string. Getting element attribute for color returns rgb value, but hex value is usually is more useful.
+        /// </summary>
+        /// <param name="rgb"></param>
+        /// <returns></returns>
         public static string ConvertRGBToHex(this string rgb)
         {
+            var numbers = rgb.Contains("a") ?
+                rgb.Replace("rgba(", "").Replace(")", "").Split(',')
+                : rgb.Replace("rgb(", "").Replace(")", "").Split(',');
 
-            String[] numbers = rgb.Replace("rgba(", "").Replace(")", "").Split(',');
             int r = Convert.ToInt16(numbers[0].Trim());
             int g = Convert.ToInt16(numbers[1].Trim());
             int b = Convert.ToInt16(numbers[2].Trim());
-            string hex = r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
+            var hex = r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
             return hex;
         }
     }
